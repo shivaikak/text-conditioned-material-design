@@ -1,0 +1,73 @@
+experiment:
+  id: baseline
+  title: Baseline SMILES GPT
+  seed: 42
+  baseline_id: null
+  baseline_commit: null
+  hypothesis: Baseline configuration used for controlled comparisons.
+  independent_variable:
+    name: null
+    baseline_value: null
+    proposed_value: null
+
+paths:
+  data: /scratch/sk10731/chebi_material_enriched.jsonl
+  reference: /scratch/sk10731/chebi_material_enriched.jsonl
+  experiment_root: experiments
+
+model:
+  n_embd: 256
+  n_head: 4
+  n_layer: 6
+  dropout: 0.1
+  max_len: 256
+
+training:
+  batch_size: 128
+  max_epochs: 300
+  lr: 0.0003
+  weight_decay: 0.1
+  gradient_clip: 1.0
+  num_workers: 4
+  val_fraction: 0.1
+  early_stopping_patience: 20
+
+sampling:
+  n_sample: 1000
+  batch_size: 100
+  temperature: 1.0
+  top_p: 0.95
+
+filters:
+  max_heavy_atoms: 80
+
+evaluation:
+  alpha: 0.05
+  multiple_testing: fdr_bh
+  bootstrap_iterations: 1000
+  descriptors:
+    - MolecularWeight
+    - LogP
+    - TPSA
+    - NumAromaticRings
+    - NumRotatableBonds
+    - FractionCSP3
+    - ApproxSurfaceArea
+    - NumValenceElectrons
+    - HeavyAtomCount
+
+wandb:
+  enabled: true
+  mode: offline
+  project: smiles-materials-autolab
+
+slurm:
+  account: torch_pr_927_general
+  partition: l40s_public
+  gres: gpu:1
+  cpus_per_task: 8
+  mem: 32G
+  time: 2-00:00:00
+  mail_user: shiveshkumar3000@gmail.com
+  mail_type: BEGIN,END,FAIL
+  python: /share/apps/anaconda3/2025.06/bin/python3.13

@@ -1,0 +1,13 @@
+torch==2.11.0
+lightning==2.6.1
+rdkit==2026.3.1
+wandb==0.25.1
+pandas
+numpy
+scipy
+statsmodels
+scikit-learn
+matplotlib
+seaborn
+PyYAML
+pytest

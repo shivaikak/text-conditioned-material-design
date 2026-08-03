@@ -1,0 +1,61 @@
+{
+  "batch_id": "B001",
+  "baseline_id": "baseline",
+  "candidates": [
+    {
+      "id": "H001",
+      "title": "Lower learning rate",
+      "hypothesis": "Reducing the learning rate from 3e-4 to 2e-4 improves distributional conformity without reducing chemical validity.",
+      "mechanism": "Smaller updates may reduce late-epoch overfitting while preserving learned SMILES syntax.",
+      "parameter": "training.lr",
+      "proposed_value": 0.0002,
+      "primary_outcome": "evaluation.distribution.conformity_proxy",
+      "support_criteria": [
+        "Conformity improves by at least 0.005.",
+        "Validity decreases by no more than 0.01."
+      ],
+      "rejection_criteria": [
+        "Conformity is lower than baseline.",
+        "Validity decreases by more than 0.01."
+      ],
+      "estimated_gpu_hours": 8,
+      "information_value": "Tests whether optimization step size is limiting generalization."
+    },
+    {
+      "id": "H002",
+      "title": "Higher dropout",
+      "hypothesis": "Increasing dropout from 0.1 to 0.2 improves novelty while preserving distributional conformity.",
+      "mechanism": "Stronger regularization may reduce memorization of training strings.",
+      "parameter": "model.dropout",
+      "proposed_value": 0.2,
+      "primary_outcome": "evaluation.generation.novelty",
+      "support_criteria": [
+        "Novelty improves by at least 0.01.",
+        "Conformity decreases by no more than 0.005."
+      ],
+      "rejection_criteria": [
+        "Validity decreases by more than 0.01."
+      ],
+      "estimated_gpu_hours": 8,
+      "information_value": "Separates memorization effects from model-capacity effects."
+    },
+    {
+      "id": "H003",
+      "title": "Larger embedding dimension",
+      "hypothesis": "Increasing the embedding dimension from 256 to 384 improves descriptor conformity by representing SMILES token contexts more effectively.",
+      "mechanism": "A larger token representation may capture more structural context before attention layers.",
+      "parameter": "model.n_embd",
+      "proposed_value": 384,
+      "primary_outcome": "evaluation.distribution.conformity_proxy",
+      "support_criteria": [
+        "Conformity improves by at least 0.005."
+      ],
+      "rejection_criteria": [
+        "Conformity is lower than baseline.",
+        "Validity decreases by more than 0.01."
+      ],
+      "estimated_gpu_hours": 10,
+      "information_value": "Tests a model-capacity hypothesis that is independent of optimization and regularization."
+    }
+  ]
+}

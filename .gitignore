@@ -1,3 +1,26 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.env
+.DS_Store
+
+# Data and large model artifacts
+data/
+*.ckpt
+*.pt
+*.pth
+wandb/
+lightning_logs/
+
+# Experiment outputs retained on HPC but not committed by default
+experiments/*/outputs/
+experiments/*/slurm-*.out
+experiments/*/slurm-*.err
+
+# Generated reports can be selectively force-added
+reports/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
