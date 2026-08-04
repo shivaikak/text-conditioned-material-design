@@ -70,4 +70,4 @@ slurm:
   time: 2-00:00:00
   mail_user: shiveshkumar3000@gmail.com
   mail_type: BEGIN,END,FAIL
-  python: /share/apps/anaconda3/2025.06/bin/python3.13
+  python: /scratch/sk10731/text-generated-material-design/text-condtitioned-material-design/.venv/bin/python
