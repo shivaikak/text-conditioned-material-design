@@ -11,8 +11,8 @@ experiment:
     proposed_value: null
 
 paths:
-  data: /scratch/sk10731/text-generated-material-design/chebi_material_enriched.jsonl
-  reference: /scratch/sk10731/text-generated-material-design/chebi_material_enriched.jsonl
+  data: /scratch/sk10731/text-generated-material-design/text-conditioned-material-design/data/chebi_material_enriched.jsonl
+  reference: /scratch/sk10731/text-generated-material-design/text-conditioned-material-design/data/chebi_material_enriched.jsonl
   experiment_root: experiments
 
 model:
@@ -70,4 +70,4 @@ slurm:
   time: 2-00:00:00
   mail_user: sk10731@nyu.edu
   mail_type: BEGIN,END,FAIL
-  python: /scratch/sk10731/text-generated-material-design/text-condtitioned-material-design/.venv/bin/python
+  python: /scratch/sk10731/text-generated-material-design/text-conditioned-material-design/.venv/bin/python
