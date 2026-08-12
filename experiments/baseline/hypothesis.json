@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "baseline",
+  "title": "Baseline SMILES GPT",
+  "created_at": "2026-08-12T03:11:53.313579+00:00",
+  "status": "CREATED",
+  "hypothesis": "Reference run for all controlled comparisons.",
+  "mechanism": "Not applicable",
+  "baseline_config": "configs/baseline.yaml",
+  "baseline_commit": "19dc594738c2e757e1772c16f7d03d5cf6b169ba",
+  "independent_variable": {
+    "name": null,
+    "baseline_value": null,
+    "proposed_value": null
+  },
+  "primary_outcome": "evaluation.distribution.conformity_proxy",
+  "support_criteria": [],
+  "rejection_criteria": []
+}
